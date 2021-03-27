@@ -1,0 +1,16 @@
+{
+    "criteria": {
+        "remove_chest":{
+            "trigger": "player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "shulker",
+                    "nbt": "{Tags:[\"CTVChestPoint\"]}"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "chest_to_villager:remove/chest"
+    }
+}
