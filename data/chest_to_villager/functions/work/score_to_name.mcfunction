@@ -6,19 +6,10 @@
 #
 # @api
 
-#> 座標を書き換える人へ
-# ディメンションを変える場合は forceload,setblock コマンドの前に execute in <dimension> run を加えてください。
-# 座標を書き換える場合は forceload と setblock の座標をそれぞれ対応させて変更してください。#
-
-
-forceload add 0 0
-
 tag @s add CTVTarget
-setblock 0 0 0 minecraft:lectern{Book:{id:"written_book",Count:1b,tag:{title:"",author:"",pages:['{"score":{"name":"@e[tag=CTVTarget,limit=1]","objective":"ChestToVillager"}}']}}}
+setblock ~ ~1 ~ minecraft:lectern{Book:{id:"written_book",Count:1b,tag:{title:"",author:"",pages:['{"score":{"name":"@e[tag=CTVTarget,limit=1]","objective":"ChestToVillager"}}']}}}
 tag @s remove CTVTarget
 
-data modify entity @s CustomName set from block 0 0 0 Book.tag.pages[0]
+data modify entity @s CustomName set from block ~ ~1 ~ Book.tag.pages[0]
 
-setblock 0 0 0 bedrock
-
-forceload remove 0 0
+setblock ~ ~1 ~ air
